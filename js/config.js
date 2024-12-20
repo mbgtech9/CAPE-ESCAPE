@@ -1,23 +1,10 @@
-(function () {
-    const getConfig = () => {
-        const config = {
-            cognito: {
-                userPoolId: process.env.COGNITO_USER_POOL_ID || 'us-west-2_AtFkzn0MF',
-                userPoolClientId: process.env.COGNITO_USER_POOL_CLIENT_ID || '7aisnk3shse8918f2ulpteapeh',
-                region: process.env.COGNITO_REGION || 'us-west-2',
-            },
-            api: {
-                invokeUrl: process.env.API_INVOKE_URL || '', // Add your default or fallback URL if necessary
-            },
-        };
-
-        // Validate configuration values
-        if (!config.cognito.userPoolId || !config.cognito.userPoolClientId || !config.cognito.region) {
-            throw new Error('Cognito configuration is incomplete.');
-        }
-
-        return config;
-    };
-
-    window._config = getConfig();
-})();
+window._config = {
+    cognito: {
+        userPoolId: 'us-west-2_AtFkzn0MF', // e.g. us-east-2_uXboG5pAb
+        userPoolClientId: '7aisnk3shse8918f2ulpteapeh', // e.g. 25ddkmj4v6hfsfvruhpfi7n4hv
+        region: 'us-west-2' // e.g. us-east-2
+    },
+    api: {
+        invokeUrl: '' // e.g. https://rc7nyt4tql.execute-api.us-west-2.amazonaws.com/prod
+    }
+};
